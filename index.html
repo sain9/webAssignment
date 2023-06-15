@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment Project</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+  
+  <style>
+
+body{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+    .navbar-custom {
+      background-color: #131514;
+    }
+    
+    .navbar-nav .nav-link {
+      color: #FFFFFF;
+      margin-left: 30px; /* Increase the margin here */
+    }
+    
+    .custom-button {
+      height: 47px;
+      width: 137px;
+      border-radius: 23.5px;
+      background: linear-gradient(180deg, #017B96 0%, #1E4047 100%);
+      margin-left: 10px;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-icon {
+      width: 196px;
+      height: 94px;
+    }
+
+    .navbar-brand {
+      position: relative;
+      padding: 0;
+    }
+
+    .navbar-brand img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+    }
+    
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 534px;
+      background: url(./assets/image\ 5.png) no-repeat center center;
+      background-size: cover;
+    }
+    
+    .jumbotron {
+      padding: 0;
+    }
+    
+    .text-section {
+      position: absolute;
+      width: 1087px;
+      height: 76px;
+      left: 50%;
+      top: 600px;
+      transform: translateX(-50%);
+      font-family: 'Jura', sans-serif;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 75.71px;
+      text-align: center;
+      color: #000000;
+      mix-blend-mode: multiply;
+    }
+    
+    .sub-text {
+      position: absolute;
+      width: 845px;
+      height: 64px;
+      left: 50%;
+      top: 682px;
+      transform: translateX(-50%);
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 32px;
+      text-align: center;
+      color: #4C696D;
+    }
+    
+    .search-bar {
+      box-sizing: border-box;
+      position: relative;
+      width: 995px;
+      height: 51px;
+      left: 50%;
+      top: 800px;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      border: 2px solid #000000;
+      border-radius: 34px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+    
+    .search-input {
+      flex-grow: 1;
+      height: 100%;
+      padding: 10px 0 10px 230px; /* Adjust the left padding to 50px */
+      font-size: 16px;
+      font-family: 'Josefin Sans', sans-serif;
+      color: #000000;
+      outline: none;
+      border: none;
+    }
+    
+    .search-button {
+      box-sizing: border-box;
+      position: absolute;
+      width: 277px;
+      height: 51px;
+      right: 0;
+      top: 0;
+      background: #221010;
+      border: 1px solid #000000;
+      border-radius: 34px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 35px;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+    .image-section {
+      width: 100%;
+      height: 400px;
+      background: url(./assets/allvector.png) no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin-top: 300px; /* Add a margin-top to create space between the image section and the search bar */
+    }
+    
+
+    .custom-section {
+      background-color: #A1E3D8;
+      padding: 20px;
+      border-radius: 10px;
+      position: relative;
+      margin-bottom: 18%;
+    }
+
+    .custom-card {
+      position: relative;
+      width: 304px;
+      height: 241px;
+      background: #2C2C2C;
+      border-radius: 24px;
+      margin-right: 15%;
+    }
+
+    .custom-card-image {
+      width: 100%;
+      height: 175px;
+      border-radius: 24px 24px 0 0;
+      object-fit: cover;
+    }
+
+    .custom-card-body {
+      padding: 15px;
+    }
+
+    .custom-card-title {
+      font-family: 'Itoya-Bold';
+      font-size: 18px;
+      line-height: 22px;
+      color: #FFFFFF;
+      margin-bottom: 5px;
+    }
+
+    .custom-card-location {
+      font-family: 'Itoya-Light';
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      padding-bottom: 25px;
+    }
+
+    .see-more-link {
+      position: absolute;
+      width: 217px;
+      height: 34px;
+      top: 0;
+      right: 5%;
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      color: #4C696D;
+      text-decoration: none;
+    }
+
+    .card-gap {
+      margin-bottom: 40px;
+    }
+
+    .find-associate {
+  /* position: absolute;
+  width: 384px;
+  height: 37px;
+  left: 39px;
+  top: 42px; */
+  font-family: 'Itoya-Bold';
+  font-size: 36px;
+  line-height: 42px;
+  /* text-align: center; */
+  color: #4C696D;
+}
+
+.associate-description {
+  /* position: absolute;
+  width: 477px;
+  height: 47px;
+  left: 65px;
+  top: 88px; */
+  font-family: 'Itoya-Light';
+  font-size: 20px;
+  line-height: 23px;
+  color: #0C0C0C;
+}
+
+
+
+.footer-section {
+      background-color: #F2F2F2;
+      padding: 20px;
+      position: relative;
+    }
+
+    .footer-image {
+      width: 100%;
+    }
+
+    .footer-image-2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 250px;
+      
+    }
+
+    .footer-image-1 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 200px;
+    }
+
+
+
+    @media (max-width: 767px) {
+      .custom-card {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px; /* Add margin bottom for responsive spacing */
+      }
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand" href="#">
+      <div class="logo-icon">
+        <img src="./assets/FliqaIndia-Logo 1.png" alt="Logo">
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"> Blog</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link custom-button" href="#">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link custom-button" href="#">Sign Up</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="jumbotron hero-section">
+    <div class="text-section">
+      India’s Leading Creative Platform
+    </div>
+    <div class="sub-text">
+      Experience hassle-free bookings. Trusted by 2500+ Customers
+    </div>
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="Search service,blog and many more..." >
+      <button class="search-button">Search</button>
+    </div>
+  </div>
+  
+  <div class="image-section"></div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="custom-section">
+          <div class="row">
+            <div class="col-md-6">
+                <p class="find-associate">Find Trusted Associate</p>
+                <p class="associate-description">Find the best Fliqa Associate for your special day.</p>
+            </div>
+            <div class="col-md-6 text-right">
+              <a href="#" class="see-more-link">See more >></a>
+            </div>
+          </div>
+          
+          <div class="row mt-4">
+            <div class="col-md-2 card-gap">
+              <div class="custom-card">
+                <img src="./assets/Rectangle 171p1.png" alt="Image 1" class="custom-card-image">
+                <div class="custom-card-body">
+                  <h5 class="custom-card-title">Name Title:</h5>
+                  <p class="custom-card-location">Location:</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 card-gap">
+              <div class="custom-card">
+                <img src="./assets/Rectangle 171p2.png" alt="Image 2" class="custom-card-image">
+                <div class="custom-card-body">
+                  <h5 class="custom-card-title">Name 2</h5>
+                  <p class="custom-card-location">Location 2</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 card-gap">
+              <div class="custom-card">
+                <img src="./assets/Rectangle 171 p3.png" alt="Image 3" class="custom-card-image">
+                <div class="custom-card-body">
+                  <h5 class="custom-card-title">Name 3</h5>
+                  <p class="custom-card-location">Location 3</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 card-gap">
+              <div class="custom-card">
+                <img src="./assets/Rectangle 171p4.png" alt="Image 4" class="custom-card-image">
+                <div class="custom-card-body">
+                  <h5 class="custom-card-title">Name 4</h5>
+                  <p class="custom-card-location">Location 4</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 card-gap">
+              <div class="custom-card">
+                <img src="./assets/Rectangle 171p5.png" alt="Image 5" class="custom-card-image">
+                <div class="custom-card-body">
+                  <h5 class="custom-card-title">Name 5</h5>
+                  <p class="custom-card-location">Location 5</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer-section">
+    <img src="./assets/Group 173.png" alt="Footer Image 1" class="footer-image footer-image-1">
+    <img src="./assets//Mask group.png" alt="Footer Image 2" class="footer-image footer-image-2">
+  </div>
+
+
+  
+  <!-- Bootstrap JS (Optional, if you need JavaScript functionality) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
